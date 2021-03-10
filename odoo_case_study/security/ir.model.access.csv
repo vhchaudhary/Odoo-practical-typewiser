@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_typewiser_course,access_typewiser_course,model_typewiser_course,,1,1,1,1
+access_typewiser_room,access_typewiser_room,model_typewiser_room,,1,1,1,1
+access_typewiser_lesson,access_typewiser_lesson,model_typewiser_lesson,,1,1,1,1

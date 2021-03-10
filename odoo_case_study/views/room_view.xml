@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- tree view typewiser.room -->
+    <record id="typewiser_room_tree_view" model="ir.ui.view">
+        <field name="name">typewiser.room.tree.view</field>
+        <field name="model">typewiser.room</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="capacity"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form view typewiser.room -->
+    <record id="typewiser_room_form_view" model="ir.ui.view">
+        <field name="name">typewiser.room.form.view</field>
+        <field name="model">typewiser.room</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="capacity"/>
+                        </group>
+                        <group>
+                            <field name="attendees_limit"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action typewiser.room -->
+    <record id="action_typewiser_room" model="ir.actions.act_window">
+        <field name="name">Room</field>
+        <field name="res_model">typewiser.room</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="root_menu_case_study"
+              name="Case Study"
+              sequence="3"/>
+
+    <menuitem id="menu_room"
+              name="Room"
+              action="action_typewiser_room"
+              parent="root_menu_case_study"
+              sequence="3"/>
+</odoo>

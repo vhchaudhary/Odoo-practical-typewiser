@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report id="course_report_tw"
+            model="typewiser.course"
+            string="Course Report"
+            report_type="qweb-pdf"
+            name="odoo_case_study.report_course_template"
+            file="odoo_case_study.report_course_template"
+    />
+
+
+    <template id="report_course_template">
+        <t t-call="web.basic_layout">
+            <center><h2>Course Details Report</h2></center>
+                <t t-foreach="course_ids" t-as="course">
+                    <div>
+                        <table width="100%">
+                            <tr>
+                                <th width="15%">Name :</th>
+                                <td><span t-esc="course.get('name')"/></td>
+                            </tr>
+                            <tr>
+                                <th width="15%">Room :</th>
+                                <td><span t-esc="course.get('room_id')"/></td>
+                            </tr>
+                            <tr>
+                                <th width="15%">Instructor :</th>
+                                <td><span t-esc="course.get('partner_id')"/></td></tr>
+                        </table>
+                    </div><br/>
+
+                        <table width="100%" style="border:1px solid;">
+                            <thead>
+                                <th>Name</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                            </thead>
+                            <t t-foreach="course.get('lesson_ids')" t-as="lesson">
+                                <tr>
+                                    <td>
+                                        <span t-esc="lesson[0]"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="lesson[1]"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="lesson[2]"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    <br/><br/>
+                </t>
+            </t>
+    </template>
+</odoo>

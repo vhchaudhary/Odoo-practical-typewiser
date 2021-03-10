@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+
+
+
+      <template id="portal_my_tickets" name="My Course">
+          <t t-call="portal.portal_layout">
+              <h3>Courses
+              </h3>
+              <t t-if="not courses">
+                  <div class="alert alert-warning mt8" role="alert">
+                      There are no Course.
+                  </div>
+              </t>
+              <div t-if="courses" class="panel panel-default">
+                  <div class="table-responsive"><table class="table table-hover o_portal_my_doc_table">
+                      <thead>
+                          <tr class="active">
+                              <th>Course No.</th>
+                              <th class="col-md-5">Name</th>
+                              <th>Room</th>
+                              <th>Instructor</th>
+                              <th>Description</th>
+
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr t-foreach="courses" t-as="course">
+                              <td>
+                                  <span t-field="course.id"/>
+                              </td>
+                              <td>
+                                  <span t-field="course.name"/>
+                              </td>
+                              <td>
+                                  <span t-field="course.room_id.name"/>
+                              </td>
+                              <td>
+                                  <span t-field="course.partner_id.name"/>
+                              </td>
+                              <td>
+                                  <span t-field="course.description"/>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table></div>
+              </div>
+              <div t-if="pager" class="o_portal_pager text-center">
+                  <t t-call="portal.pager"/>
+              </div>
+          </t>
+      </template>
+
+
+      <!-- <template id="index">
+          <title>Academy</title>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody t-foreach="teachers" t-as="teacher">
+              <tr>
+                <th scope="row"><t t-esc="teacher"/></th>
+                <th scope="row"><t t-esc="teacher"/></th>
+                <th scope="row"><t t-esc="teacher"/></th>
+                <th scope="row"><t t-esc="teacher"/></th>
+              </tr>
+            </tbody>
+          </table>
+      </template> -->
+
+    </data>
+</odoo>

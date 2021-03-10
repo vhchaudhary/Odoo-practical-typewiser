@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- tree view typewiser.course -->
+    <record id="typewiser_course_tree_view" model="ir.ui.view">
+        <field name="name">typewiser.course.tree.view</field>
+        <field name="model">typewiser.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="room_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form view typewiser.course -->
+    <record id="typewiser_course_form_view" model="ir.ui.view">
+        <field name="name">typewiser.course.form.view</field>
+        <field name="model">typewiser.course</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id" required="1"/>
+                        </group>
+                        <group>
+                            <field name="room_id" required="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Attendes" name="attendes">
+                            <field name="attendee_ids" nolabel="1"/>
+                        </page>
+
+                        <page string="Lessons" name="lessons">
+                            <field name="lesson_ids" nolabel="1"/>
+                        </page>
+
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action typewiser.course -->
+    <record id="action_typewiser_course" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="res_model">typewiser.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_course"
+              name="Course"
+              action="action_typewiser_course"
+              parent="root_menu_case_study"
+              sequence="2"/>
+
+    <!-- tree view typewiser.lesson -->
+    <record id="typewiser_lesson_tree_view" model="ir.ui.view">
+        <field name="name">typewiser.lesson.tree.view</field>
+        <field name="model">typewiser.lesson</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="room_id"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form view typewiser.lesson -->
+    <record id="typewiser_lesson_form_view" model="ir.ui.view">
+        <field name="name">typewiser.lesson.form.view</field>
+        <field name="model">typewiser.lesson</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="room_id"/>
+                        </group>
+                        <group>
+                            <field name="start_time" required="1"/>
+                            <field name="end_time" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action typewiser.lesson -->
+    <record id="action_typewiser_lesson" model="ir.actions.act_window">
+        <field name="name">Lesson</field>
+        <field name="res_model">typewiser.lesson</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_lesson"
+              name="Lesson"
+              action="action_typewiser_lesson"
+              parent="root_menu_case_study"
+              sequence="4"/>
+</odoo>

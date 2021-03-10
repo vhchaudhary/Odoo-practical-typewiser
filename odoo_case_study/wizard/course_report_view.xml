@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="typewiser_course_wizard" model="ir.ui.view">
+        <field name="name">typewiser.course.report</field>
+        <field name="model">wiz.course.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="course_ids" nolabel="1" widget="many2many_tags"/>
+                </group>
+                <footer>
+                    <button string='Print' name="print_course_report" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+           </form>
+        </field>
+    </record>
+
+    <!-- wzard action -->
+    <record id="action_wiz_course_report" model="ir.actions.act_window">
+        <field name="name">Course Report</field>
+        <field name="res_model">wiz.course.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_reporting"
+              name="Reporting"
+              parent="root_menu_case_study"
+              sequence="10"/>
+
+    <menuitem id="menu_course_report"
+              name="Course Report"
+              action="action_wiz_course_report"
+              sequence="1"
+              parent="menu_reporting"/>
+</odoo>
